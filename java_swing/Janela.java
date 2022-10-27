@@ -1,30 +1,32 @@
 import javax.swing.*;
-import java.awt.*;
+
+import javafx.scene.paint.Color;
 
 
 public class Janela extends JFrame {
 
-    private JTextField campoTextField;
-    private JTextField resultadoTextField;
+    private JTextArea campoTextArea;
     private JComboBox<String> opcoesComboBox;
     private String[] opcoes = {"Alta","Média","Baixa"};
 
     public Janela(){
         setTitle("Cadastro de Tarefas");
         setSize(800,550);
-        setVisible(true);
         configurarJanela();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
     }
 
     private void configurarJanela() {
         JPanel panel = new JPanel();
         panel.setLayout(null);
 
-        
+        campoTextArea = new JTextArea(40,100);
+        campoTextArea.setBounds(50,40,700,90);
+        campoTextArea.setBorder(BorderFactory.createLineBorder(getForeground()));
 
         JLabel label = new JLabel("Tarefa");
-        label.setBounds(50,10,100,60);
+        label.setBounds(50,10,100,30);
         label.setOpaque(true);
 
         JLabel label2 = new JLabel("Prioridade");
@@ -45,6 +47,7 @@ public class Janela extends JFrame {
         panel.add(salvarBotao);
         panel.add(cancelarBotao);
         panel.add(opcoesComboBox);
+        panel.add(campoTextArea);
         
         add(panel);
     }
